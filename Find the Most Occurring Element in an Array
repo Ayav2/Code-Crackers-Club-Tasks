@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int find_max_element(int *array , int taille){
+     int max = 0, most , count;
+     int i,j;
+    for ( i = 0; i < taille; i++) {
+        count = 0;
+        for ( j = 0; j < taille; j++) {
+            if (array[i]==array[j]){
+                count++;
+            }
+        }
+        
+        if (count > max) {
+            max = count;
+            most = array[i];
+        }
+    }
+    
+    return  most ;
+}
+
+int main (){
+    int array[10] ,taille;
+    do
+    {
+    printf("entrer la taille de tableau:");
+    scanf("%d",&taille);
+    } while (taille < 0 && taille > 10);
+
+    for ( int i = 0; i < taille ; i++)
+    {
+        printf("entre element de tableau,array[%d]:",1+i);
+        scanf("%d",&array[i]);
+    }
+    printf("Most frequent element: %d\n", find_max_element(array, taille));
+    return 0;
+}
